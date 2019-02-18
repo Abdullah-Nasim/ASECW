@@ -1,5 +1,8 @@
 package models;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Product {
 
     private String id;
@@ -7,6 +10,8 @@ public class Product {
     private String description;
     private Category category;
     private Double cost;
+    private String orderedQuantity = "0";
+
 
     public Product(String id, String name, String description, Category category, Double cost) {
         this.id = id;
@@ -55,4 +60,13 @@ public class Product {
     public void setCost(Double cost) {
         this.cost = cost;
     }
+
+    public String getOrderedQuantity() {
+        return orderedQuantity;
+    }
+
+    public void setOrderedQuantity(String orderedQuantity) {
+        this.orderedQuantity = orderedQuantity;
+    }
+
 }

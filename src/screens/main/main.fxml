@@ -1,20 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screens.main.MainController">
-   <children>
-      <AnchorPane prefHeight="720" prefWidth="1280">
-         <children>
-            <ListView layoutX="14.0" layoutY="14.0" prefHeight="472.0" prefWidth="200.0" />
-            <ListView layoutX="231.0" layoutY="14.0" prefHeight="220.0" prefWidth="200.0" />
-            <ListView layoutX="231.0" layoutY="266.0" prefHeight="220.0" prefWidth="200.0" />
-         </children></AnchorPane>
-   </children>
+   <AnchorPane prefHeight="720" prefWidth="1280">
+      <ListView fx:id="foodItemsLV" layoutX="14.0" layoutY="52.0" prefHeight="653.0" prefWidth="363.0" />
+      <ListView fx:id="beveragesLV" layoutX="400.0" layoutY="52.0" prefHeight="388.0" prefWidth="363.0" />
+      <ListView fx:id="otherItemsLV" layoutX="400.0" layoutY="486.0" prefHeight="220.0" prefWidth="363.0" />
+      <Label layoutX="131.0" layoutY="14.0" text="Food Items">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="523.0" layoutY="14.0" text="Beverages">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="514.0" layoutY="448.0" text="Other Items">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <TableView fx:id="cartTableView" layoutX="783.0" layoutY="52.0" prefHeight="500.0" prefWidth="483.0">
+         <columns>
+            <TableColumn fx:id="productIdCol" text="Product ID" />
+            <TableColumn fx:id="productNameCol" prefWidth="160.0" text="Product Name" />
+            <TableColumn fx:id="categoryCol" minWidth="0.0" text="Category" />
+            <TableColumn fx:id="costCol" minWidth="0.0" text="Cost" />
+            <TableColumn fx:id="quantityCol" minWidth="0.0" text="Quantity" />
+         </columns>
+      </TableView>
+      <Label layoutX="1001.0" layoutY="14.0" text="Cart">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Button fx:id="placeOrderBtn" layoutX="783.0" layoutY="633.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="483.0" text="Place Order">
+         <font>
+            <Font size="26.0" />
+         </font></Button>
+      <Label layoutX="783.0" layoutY="577.0" text="Total:">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="1196.0" layoutY="577.0" text="0 AED">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+   </AnchorPane>
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>

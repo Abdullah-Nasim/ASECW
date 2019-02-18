@@ -3,7 +3,7 @@ package models;
 public class Category{
 
     private String id;
-    private String name;
+     String name;
 
     public Category(String id, String name) {
         this.id = id;

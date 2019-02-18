@@ -6,9 +6,7 @@ import models.Product;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 class MainPresenter {
 
@@ -51,7 +49,8 @@ class MainPresenter {
             productsTempArray.add(productsScanner.next().replace("\r\n", ""));
         }
         for(int i = 0 ; i < productsTempArray.size(); i += 5 ){
-            products.add(new Product(productsTempArray.get(i), productsTempArray.get(i+1), productsTempArray.get(i+2), getCategoryUsingId(productsTempArray.get(i+3)), Double.parseDouble(productsTempArray.get(i+4))));
+            products.add(new Product(productsTempArray.get(i), productsTempArray.get(i+1), productsTempArray.get(i+2),
+                    getCategoryUsingId(productsTempArray.get(i+3)), Double.parseDouble(productsTempArray.get(i+4))));
         }
         //Finished generating products data structure
 
@@ -67,14 +66,45 @@ class MainPresenter {
         }
         //Finished generating customers data structure
 
-
-        System.out.println(customers);
-
         categoriesScanner.close();
         productsScanner.close();
         customersScanner.close();
 
-        mainView.onMenuLoaded(products, customers);
+        TreeMap<String, ArrayList<Product>> menuTreeMap = new TreeMap<>();
+
+        menuTreeMap.put("CAT101", getBeverageItems(products));
+        menuTreeMap.put("CAT102", getFoodItems(products));
+        menuTreeMap.put("CAT103", getOtherItems(products));
+
+        mainView.onMenuLoaded(menuTreeMap);
+    }
+
+    private ArrayList<Product> getBeverageItems(ArrayList<Product> products){
+        ArrayList<Product> tempItemsArray = new ArrayList<>();
+        for (Product product : products) {
+            if (product.getCategory().getId().equals("CAT101"))
+                tempItemsArray.add(product);
+        }
+        return tempItemsArray;
+    }
+
+
+    private ArrayList<Product> getFoodItems(ArrayList<Product> products){
+        ArrayList<Product> tempItemsArray = new ArrayList<>();
+        for (Product product : products) {
+            if (product.getCategory().getId().equals("CAT102"))
+                tempItemsArray.add(product);
+        }
+        return tempItemsArray;
+    }
+
+    private ArrayList<Product> getOtherItems(ArrayList<Product> products){
+        ArrayList<Product> tempItemsArray = new ArrayList<>();
+        for (Product product : products) {
+            if (product.getCategory().getId().equals("CAT103"))
+                tempItemsArray.add(product);
+        }
+        return tempItemsArray;
     }
 
     private Category getCategoryUsingId(String Id){
