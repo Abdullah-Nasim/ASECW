@@ -5,8 +5,16 @@ public class Product {
     private String id;
     private String name;
     private String description;
-    private String categoryId;
+    private Category category;
     private Double cost;
+
+    public Product(String id, String name, String description, Category category, Double cost) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.category = category;
+        this.cost = cost;
+    }
 
     public String getId() {
         return id;
@@ -32,12 +40,12 @@ public class Product {
         this.description = description;
     }
 
-    public String getCategoryId() {
-        return categoryId;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCategoryId(String categoryId) {
-        this.categoryId = categoryId;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public Double getCost() {

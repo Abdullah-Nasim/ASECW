@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -8,10 +8,11 @@
 
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screens.main.MainController">
    <children>
-      <AnchorPane prefHeight="500.0" prefWidth="800.0">
+      <AnchorPane prefHeight="720" prefWidth="1280">
          <children>
-            <Button layoutX="14.0" layoutY="27.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="151.0" text="Button" />
-            <Button layoutX="654.0" layoutY="27.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="132.0" text="Button" />
+            <ListView layoutX="14.0" layoutY="14.0" prefHeight="472.0" prefWidth="200.0" />
+            <ListView layoutX="231.0" layoutY="14.0" prefHeight="220.0" prefWidth="200.0" />
+            <ListView layoutX="231.0" layoutY="266.0" prefHeight="220.0" prefWidth="200.0" />
          </children></AnchorPane>
    </children>
    <columnConstraints>

@@ -1,0 +1,13 @@
+BRV101;Coffee(Hot, Cold);-;CAT101;10;
+BRV102;SoftDrinks(Cola, Fanta, Sprite);-;CAT101;3;
+BRV103;Tea(Hot, Cold);-;CAT101;5;
+BRV104;Juices(Orange, Apple);-;CAT101;8;
+FOOD101;Sandwiches;-;CAT102;10;
+FOOD102;Croissant;-;CAT102;5;
+FOOD103;Muffin;-;CAT102;2;
+FOOD104;Pasta;-;CAT102;15;
+FOOD105;Donut;-;CAT102;6;
+OTHER101;Chips;-;CAT103;2;
+OTHER102;Biscuits;-;CAT103;2;
+OTHER103;Sweets;-;CAT103;1;
+OTHER104;Halwa;-;CAT103;5;
