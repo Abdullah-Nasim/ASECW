@@ -2,7 +2,6 @@ package screens.main;
 
 import interfaces.CartInterface;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.util.Callback;
 import models.Order;
 import models.Product;
 import screens.main.lists.ProductsListViewCell;
@@ -34,6 +32,7 @@ public class MainController implements Initializable, MainView, CartInterface {
     public TableColumn<Product, String> categoryCol;
     public TableColumn<Product, Double> costCol;
     public TableColumn<Product, String> quantityCol;
+    public Label totalLabel;
 
     private ObservableList<Product> foodItemsObservableList;
     private ObservableList<Product> beveragesObservableList;
@@ -90,17 +89,17 @@ public class MainController implements Initializable, MainView, CartInterface {
 
         quantityCol.setCellFactory(TextFieldTableCell.forTableColumn());
 
-        quantityCol.setMinWidth(50);
-
         quantityCol.setOnEditCommit((TableColumn.CellEditEvent<Product, String> event) -> {
             TablePosition<Product, String> pos = event.getTablePosition();
-
-            String newQuantity = event.getNewValue();
-
             int row = pos.getRow();
             Product product = event.getTableView().getItems().get(row);
 
-            product.setOrderedQuantity(newQuantity);
+            if(Integer.valueOf(event.getNewValue())<=0){
+                cartObservableList.remove(product);
+            }else{
+                product.setOrderedQuantity(event.getNewValue());
+            }
+
         });
 
         cartTableView.setItems(cartObservableList);
@@ -128,11 +127,44 @@ public class MainController implements Initializable, MainView, CartInterface {
 
     @Override
     public void productAddedToCart(Product product) {
-        cartObservableList.add(product);
+        if(checkForProductAlreadyInCart(product, "add"))
+            cartObservableList.add(product);
+        cartTableView.refresh();
+        updateCartTotal();
     }
 
     @Override
     public void productRemovedFromCart(Product product) {
-        cartObservableList.remove(product);
+        if(Integer.valueOf(product.getOrderedQuantity()) == 1){
+            cartObservableList.remove(product);
+        }else{
+            checkForProductAlreadyInCart(product, "sub");
+        }
+        cartTableView.refresh();
+        updateCartTotal();
+    }
+
+    private boolean checkForProductAlreadyInCart(Product product, String action){
+        for (Product product1 : cartObservableList) {
+            if (product1.getId().equals(product.getId())) {
+                if (action.equals("add"))
+                    product1.setOrderedQuantity
+                            (String.valueOf(Integer.valueOf(product1.getOrderedQuantity()) + 1));
+                else
+                    product1.setOrderedQuantity
+                            (String.valueOf(Integer.valueOf(product1.getOrderedQuantity()) - 1));
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void updateCartTotal(){
+        double total = 0.0;
+        for (Product product : cartObservableList) {
+            total = total + product.getCost() * Integer.valueOf(product.getOrderedQuantity());
+        }
+
+        totalLabel.setText(total + " AED");
     }
 }

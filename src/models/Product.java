@@ -10,7 +10,7 @@ public class Product {
     private String description;
     private Category category;
     private Double cost;
-    private String orderedQuantity = "0";
+    private String orderedQuantity = "1";
 
 
     public Product(String id, String name, String description, Category category, Double cost) {
