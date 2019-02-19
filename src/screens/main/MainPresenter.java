@@ -3,9 +3,11 @@ package screens.main;
 import models.Category;
 import models.Customer;
 import models.Product;
+import models.Report;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.*;
 
 class MainPresenter {
@@ -16,13 +18,13 @@ class MainPresenter {
     private ArrayList<Product> products = new ArrayList<>();
     private ArrayList<Customer> customers = new ArrayList<>();
 
+    ClassLoader classLoader = getClass().getClassLoader();
+
     MainPresenter(MainView mainView) {
         this.mainView = mainView;
     }
 
     void loadData() throws FileNotFoundException {
-
-        ClassLoader classLoader = getClass().getClassLoader();
 
         File categoriesFile = new File(Objects.requireNonNull(classLoader.getResource("assets/categories.csv")).getFile());
         File productsFile = new File(Objects.requireNonNull(classLoader.getResource("assets/products.csv")).getFile());
@@ -51,7 +53,9 @@ class MainPresenter {
         for(int i = 0 ; i < productsTempArray.size(); i += 5 ){
             products.add(new Product(productsTempArray.get(i), productsTempArray.get(i+1), productsTempArray.get(i+2),
                     getCategoryUsingId(productsTempArray.get(i+3)), Double.parseDouble(productsTempArray.get(i+4))));
+            Report.getInstance().reportHashMap.put(productsTempArray.get(i),0);
         }
+        productsTempArray.clear();
         //Finished generating products data structure
 
         //Reading customers from customer.csv
@@ -64,6 +68,7 @@ class MainPresenter {
         for(int i = 0 ; i < customersTempArray.size(); i += 4 ){
             customers.add(new Customer(customersTempArray.get(i), customersTempArray.get(i+1), customersTempArray.get(i+2), customersTempArray.get(i+3)));
         }
+        customersTempArray.clear();
         //Finished generating customers data structure
 
         categoriesScanner.close();
@@ -113,5 +118,23 @@ class MainPresenter {
                 return category;
         }
         return null;
+    }
+
+    void generateReport() throws Exception{
+        File report = new File(Objects.requireNonNull(classLoader.getResource("assets/report.txt")).getFile());
+        PrintWriter writer = new PrintWriter(report, "UTF-8");
+        writer.println(String.format("%20s %50s %20s \r\n", "Product ID", "Product Name","Quantity Sold"));
+        writer.println("\n");
+        writer.println("\n");
+        for(Product product: products){
+            writer.println(String.format("%20s %50s %20s \r\n", product.getId(), product.getName(), Report.getInstance().reportHashMap.get(product.getId())));
+        }
+
+        writer.println("\n");
+        writer.println("\n");
+
+        writer.println(String.format("%20s %50s %20s \r\n", "", "Total:", Report.getInstance().totalIncome + " AED"));
+
+        writer.close();
     }
 }
