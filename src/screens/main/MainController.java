@@ -1,17 +1,16 @@
 package screens.main;
 
 import interfaces.CartInterface;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import models.Order;
 import models.Product;
+import models.Report;
 import screens.main.lists.ProductsListViewCell;
 
 import java.io.FileNotFoundException;
@@ -33,6 +32,7 @@ public class MainController implements Initializable, MainView, CartInterface {
     public TableColumn<Product, Double> costCol;
     public TableColumn<Product, String> quantityCol;
     public Label totalLabel;
+    public Button generateReportBtn;
 
     private ObservableList<Product> foodItemsObservableList;
     private ObservableList<Product> beveragesObservableList;
@@ -61,11 +61,41 @@ public class MainController implements Initializable, MainView, CartInterface {
             e.printStackTrace();
         }
 
-        placeOrderBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Order.getInstance();
+        placeOrderBtn.setOnAction(event -> {
+
+            if(!cartObservableList.isEmpty()){
+                for (Product product : cartObservableList) {
+                    Report.getInstance().reportHashMap.put(product.getId(),
+                            Report.getInstance().reportHashMap.get(product.getId())
+                                    + Integer.valueOf(product.getOrderedQuantity()));
+                }
+                Report.getInstance().totalIncome = Report.getInstance().totalIncome + calculateTotal();
+                cartObservableList.clear();
+                updateCartTotal();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Order Placed");
+                alert.setHeaderText("Order Placed Successfully");
+                alert.showAndWait();
+
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("No Products");
+                alert.setHeaderText("Please add products to the cart to place order!");
+                alert.showAndWait();
             }
+
+
+        });
+
+        generateReportBtn.setOnAction(event -> {
+            try {
+                mainPresenter.generateReport();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            Platform.exit();
+            System.exit(0);
         });
 
         // Set up the table data
@@ -160,11 +190,15 @@ public class MainController implements Initializable, MainView, CartInterface {
     }
 
     private void updateCartTotal(){
+
+        totalLabel.setText(calculateTotal() + " AED");
+    }
+
+    private Double calculateTotal(){
         double total = 0.0;
         for (Product product : cartObservableList) {
             total = total + product.getCost() * Integer.valueOf(product.getOrderedQuantity());
         }
-
-        totalLabel.setText(total + " AED");
+        return total;
     }
 }

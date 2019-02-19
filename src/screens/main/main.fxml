@@ -59,7 +59,7 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Button layoutX="784.0" layoutY="667.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="483.0" style="-fx-background-color: #C21807;" text="Generate Report and Exit" textFill="WHITE">
+      <Button fx:id="generateReportBtn" layoutX="784.0" layoutY="667.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="483.0" style="-fx-background-color: #C21807;" text="Generate Report and Exit" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
