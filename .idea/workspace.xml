@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Basic Functional Requirements Completed.">
-      <change afterPath="$PROJECT_DIR$/res/fxml/orders_list_cell.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exceptions/CostLessThanOneException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exceptions/InvalidCSVFormatException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exceptions/InvalidNumberFormatException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/customer_orders/CustomerOrdersController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/customer_orders/customer_orders.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/customer_orders/lists/OrdersListViewCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/main/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/main/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/main/MainPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/main/MainPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/main/lists/ProductsListViewCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/main/lists/ProductsListViewCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/main/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/main/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/models/ProductTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/models/ProductTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/screens/main/MainPresenterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/screens/main/MainPresenterTest.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,38 +65,51 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/screens/main/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2474">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="89">
+              <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7320#7321#0" expanded="true" />
-                <element signature="e#7381#7382#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/screens/main/lists/ProductsListViewCell.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
-              <folding>
-                <element signature="e#817#818#0" expanded="true" />
-                <element signature="e#867#868#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/screens/customer_orders/lists/OrdersListViewCell.java">
+        <entry file="file://$PROJECT_DIR$/src/screens/main/MainPresenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="32" column="39" lean-forward="true" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+            <state relative-caret-position="97">
+              <caret line="182" column="39" selection-start-line="182" selection-start-column="12" selection-end-line="182" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1377#1837#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/screens/main/MainPresenterTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/models/ProductTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/assets/products.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -118,12 +121,22 @@
       <list>
         <option value="Class" />
         <option value="FxmlFile" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>total</find>
+      <find>getCategoryUsingId</find>
+      <find>ObservableList</find>
+      <find>discountApplied</find>
+      <find>FXCollections</find>
+      <find>cartObservableList</find>
+      <find>product</find>
+      <find>category</find>
+      <find>checkForDiscountEligibility</find>
+      <find>Product</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -174,8 +187,11 @@
         <option value="$PROJECT_DIR$/src/screens/customer_orders/lists/OrdersListViewCell.java" />
         <option value="$PROJECT_DIR$/res/fxml/orders_list_cell.fxml" />
         <option value="$PROJECT_DIR$/src/screens/customer_orders/customer_orders.fxml" />
-        <option value="$PROJECT_DIR$/src/screens/main/MainPresenter.java" />
         <option value="$PROJECT_DIR$/src/screens/main/lists/ProductsListViewCell.java" />
+        <option value="$PROJECT_DIR$/src/screens/main/MainPresenter.java" />
+        <option value="$PROJECT_DIR$/tests/models/ProductTest.java" />
+        <option value="$PROJECT_DIR$/tests/screens/main/MainControllerTest.java" />
+        <option value="$PROJECT_DIR$/tests/screens/main/MainPresenterTest.java" />
       </list>
     </option>
   </component>
@@ -201,8 +217,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -213,18 +227,25 @@
             <path>
               <item name="ASECW" type="b2602c69:ProjectViewProjectNode" />
               <item name="ASECW" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ASECW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ASECW" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="fxml" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ASECW" type="b2602c69:ProjectViewProjectNode" />
               <item name="ASECW" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="exceptions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ASECW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ASECW" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ASECW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ASECW" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ASECW" type="b2602c69:ProjectViewProjectNode" />
@@ -257,15 +278,26 @@
             <path>
               <item name="ASECW" type="b2602c69:ProjectViewProjectNode" />
               <item name="ASECW" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ASECW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ASECW" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ASECW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ASECW" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="lists" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -277,27 +309,35 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550750431908" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550773884323" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="D:/TuraisJavaFxExamples-master" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="screens.main" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ASE\ASECW\src\screens\main\lists" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="screens.customer_orders.lists" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\ASE\ASECW\res\assets" />
       <recent name="D:\ASE\ASECW\res" />
       <recent name="D:\ASE\ASECW\res\fxml" />
       <recent name="D:\ASE\ASECW\src\screens\main" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="screens.customer_orders.lists" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\ASE\ASECW\src\screens\main\lists" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -312,7 +352,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -353,6 +393,103 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CustomerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ASE" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="models" />
+      <option name="MAIN_CLASS_NAME" value="models.CustomerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainPresenterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ASE" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="screens.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="screens.main" />
+      <option name="MAIN_CLASS_NAME" value="screens.main.MainPresenterTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainPresenterTest.checkForDiscountEligibilityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ASE" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="screens.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="screens.main" />
+      <option name="MAIN_CLASS_NAME" value="screens.main.MainPresenterTest" />
+      <option name="METHOD_NAME" value="checkForDiscountEligibilityTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ASE" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="models" />
+      <option name="MAIN_CLASS_NAME" value="models.ProductTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductTest.getId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ASE" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="models" />
+      <option name="MAIN_CLASS_NAME" value="models.ProductTest" />
+      <option name="METHOD_NAME" value="getId" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -383,6 +520,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MainPresenterTest.checkForDiscountEligibilityTest" />
+        <item itemvalue="JUnit.ProductTest" />
+        <item itemvalue="JUnit.MainPresenterTest" />
+        <item itemvalue="JUnit.ProductTest.getId" />
+        <item itemvalue="JUnit.CustomerTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -434,13 +580,46 @@
     <option name="localTasksCounter" value="6" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="MainPresenterTest - 2019.02.21 at 21h 18m 14s.xml">
+      <configuration name="MainPresenterTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainPresenterTest - 2019.02.21 at 22h 19m 55s.xml">
+      <configuration name="MainPresenterTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainPresenterTest_checkForDiscountEligibilityTest - 2019.02.21 at 22h 20m 28s.xml">
+      <configuration name="MainPresenterTest.checkForDiscountEligibilityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainPresenterTest_checkForDiscountEligibilityTest - 2019.02.21 at 22h 21m 21s.xml">
+      <configuration name="MainPresenterTest.checkForDiscountEligibilityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainPresenterTest_checkForDiscountEligibilityTest - 2019.02.21 at 22h 23m 45s.xml">
+      <configuration name="MainPresenterTest.checkForDiscountEligibilityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainPresenterTest_checkForDiscountEligibilityTest - 2019.02.21 at 22h 26m 15s.xml">
+      <configuration name="MainPresenterTest.checkForDiscountEligibilityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainPresenterTest_checkForDiscountEligibilityTest - 2019.02.21 at 22h 29m 07s.xml">
+      <configuration name="MainPresenterTest.checkForDiscountEligibilityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainPresenterTest_checkForDiscountEligibilityTest - 2019.02.21 at 22h 29m 24s.xml">
+      <configuration name="MainPresenterTest.checkForDiscountEligibilityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainPresenterTest_checkForDiscountEligibilityTest - 2019.02.21 at 22h 29m 46s.xml">
+      <configuration name="MainPresenterTest.checkForDiscountEligibilityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ProductTest - 2019.02.21 at 22h 30m 24s.xml">
+      <configuration name="ProductTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2739872" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.28290468" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -449,18 +628,18 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32900432" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35930735" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27287582" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.25541127" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.7305195" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.19934641" />
       <window_info anchor="bottom" id="Problems" order="9" />
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.32792208" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32900432" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32843137" />
       <window_info anchor="bottom" id="Terminal" order="14" weight="0.32792208" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -604,13 +783,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/Menu.java" />
-    <entry file="file://$PROJECT_DIR$/src/screens/main/MainView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
@@ -703,49 +875,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/assets/categories.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/exceptions/CostLessThanOneException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#132#133#0" expanded="true" />
-            <element signature="e#162#163#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Product.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/assets/customers.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/res/assets/customers.csv" />
     <entry file="file://$PROJECT_DIR$/src/models/Order.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="485">
@@ -811,18 +941,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/main/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2474">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7320#7321#0" expanded="true" />
-            <element signature="e#7381#7382#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/customer_orders/customer_orders.fxml">
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
@@ -841,42 +959,116 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/customer_orders/lists/OrdersListViewCell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="32" column="39" lean-forward="true" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+        <state relative-caret-position="425">
+          <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/main/MainPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2700">
-          <caret line="161" column="33" lean-forward="true" selection-start-line="161" selection-start-column="33" selection-end-line="161" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/assets/products.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/main/lists/ProductsListViewCell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        <state>
+          <caret column="27" selection-start-column="27" selection-end-column="27" />
           <folding>
-            <element signature="e#817#818#0" expanded="true" />
-            <element signature="e#867#868#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/main/MainView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/main/MainPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="182" column="39" selection-start-line="182" selection-start-column="12" selection-end-line="182" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1377#1837#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exceptions/CostLessThanOneException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding>
+            <element signature="e#132#133#0" expanded="true" />
+            <element signature="e#162#163#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/models/CategoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/models/CustomerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-660">
+          <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/screens/main/MainControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" selection-start-line="9" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/main/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/assets/categories.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/assets/products.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/screens/main/MainPresenterTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/models/ProductTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>

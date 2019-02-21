@@ -25,7 +25,7 @@ class ProductTest {
 
     @Test
     void getDescription() {
-        assertEquals("Bottled Water", obj1.getDescription());
+        assertEquals("Mineral Water", obj1.getDescription());
     }
 
     @Test
