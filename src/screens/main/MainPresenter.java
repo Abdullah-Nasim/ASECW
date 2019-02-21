@@ -96,14 +96,14 @@ class MainPresenter {
 
         TreeMap<String, ArrayList<Product>> menuTreeMap = new TreeMap<>();
 
-        menuTreeMap.put("CAT101", getBeverageItems(products));
+        menuTreeMap.put("CAT101", getBeverageItems());
         menuTreeMap.put("CAT102", getFoodItems(products));
         menuTreeMap.put("CAT103", getOtherItems(products));
 
         mainView.onMenuLoaded(menuTreeMap);
     }
 
-    private ArrayList<Product> getBeverageItems(ArrayList<Product> products){
+    public ArrayList<Product> getBeverageItems() {
         ArrayList<Product> tempItemsArray = new ArrayList<>();
         for (Product product : products) {
             if (product.getCategory().getId().equals("CAT101"))
@@ -131,7 +131,7 @@ class MainPresenter {
         return tempItemsArray;
     }
 
-    private Category getCategoryUsingId(String Id){
+    public Category getCategoryUsingId(String Id){
         for (Category category : categories) {
             if (category.getId().equals(Id))
                 return category;
