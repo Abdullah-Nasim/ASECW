@@ -51,8 +51,8 @@ public class MainController implements Initializable, MainView, CartInterface {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        mainPresenter = new MainPresenter(this);
 
+        mainPresenter = new MainPresenter(this);
         cartTableView.setEditable(true);
 
         try {
