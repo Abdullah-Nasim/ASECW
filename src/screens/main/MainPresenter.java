@@ -6,6 +6,7 @@ import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import models.*;
 
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -155,6 +156,8 @@ class MainPresenter {
         writer.println(String.format("%20s %50s %20s \r\n", "", "Total:", Report.getInstance().totalIncome + " AED"));
 
         writer.close();
+
+        Desktop.getDesktop().open(report);
 
         Platform.exit();
         System.exit(0);
