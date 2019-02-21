@@ -1,15 +1,12 @@
 package screens.main.lists;
 
 import interfaces.CartInterface;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.GridPane;
-import models.Order;
 import models.Product;
 
 import java.io.IOException;
@@ -64,19 +61,9 @@ public class ProductsListViewCell extends ListCell<Product> {
             product_name.setText(product.getName());
             product_cost.setText(product.getCost() + " AED");
 
-            sub_button.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    cartInterface.productRemovedFromCart(product);
-                }
-            });
+            sub_button.setOnAction(event -> cartInterface.productRemovedFromCart(product));
 
-            add_button.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    cartInterface.productAddedToCart(product);
-                }
-            });
+            add_button.setOnAction(event -> cartInterface.productAddedToCart(product));
 
             setText(null);
             setGraphic(gridPane);

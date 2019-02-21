@@ -1,7 +1,6 @@
 package models;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import exceptions.CostLessThanOneException;
 
 public class Product {
 
@@ -13,7 +12,9 @@ public class Product {
     private String orderedQuantity = "1";
 
 
-    public Product(String id, String name, String description, Category category, Double cost) {
+    public Product(String id, String name, String description, Category category, Double cost) throws CostLessThanOneException {
+        if(cost<1.0)
+            throw new CostLessThanOneException("Cost must be greater than zero!");
         this.id = id;
         this.name = name;
         this.description = description;

@@ -1,16 +1,27 @@
 package screens.main;
 
+import exceptions.CostLessThanOneException;
+import exceptions.InvalidCSVFormatException;
+import exceptions.InvalidNumberFormatException;
 import interfaces.CartInterface;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import models.Order;
 import models.Product;
 import models.Report;
+import screens.customer_orders.CustomerOrdersController;
 import screens.main.lists.ProductsListViewCell;
 
 import java.io.FileNotFoundException;
@@ -33,6 +44,7 @@ public class MainController implements Initializable, MainView, CartInterface {
     public TableColumn<Product, String> quantityCol;
     public Label totalLabel;
     public Button generateReportBtn;
+    public Button ordersList;
 
     private ObservableList<Product> foodItemsObservableList;
     private ObservableList<Product> beveragesObservableList;
@@ -57,9 +69,26 @@ public class MainController implements Initializable, MainView, CartInterface {
 
         try {
             mainPresenter.loadData();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        } catch (FileNotFoundException | InvalidCSVFormatException | CostLessThanOneException e) {
+            displayErrorAlert(e.getMessage());
+            Platform.exit();
+            System.exit(0);
         }
+
+        ordersList.setOnAction(event -> {
+            try{
+                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("screens/customer_orders/customer_orders.fxml"));
+                Parent root1 = loader.load();
+                CustomerOrdersController customerOrdersController = loader.getController();
+                customerOrdersController.setData(Order.getInstance().orders);
+                Stage stage = new Stage();
+                stage.setTitle("Customers Orders");
+                stage.setScene(new Scene(root1));
+                stage.show();
+            }catch (Exception ex){
+                ex.printStackTrace();
+            }
+        });
 
         placeOrderBtn.setOnAction(event -> {
 
@@ -71,7 +100,7 @@ public class MainController implements Initializable, MainView, CartInterface {
                 }
                 Report.getInstance().totalIncome = Report.getInstance().totalIncome + calculateTotal();
                 cartObservableList.clear();
-                updateCartTotal();
+                Order.getInstance().orders.add(new Order.OrderItem(mainPresenter.generateOrderNumber(), mainPresenter.generateCustomerNumber(),"", calculateTotal()));
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Order Placed");
                 alert.setHeaderText("Order Placed Successfully");
@@ -89,13 +118,10 @@ public class MainController implements Initializable, MainView, CartInterface {
 
         generateReportBtn.setOnAction(event -> {
             try {
-                mainPresenter.generateReport();
+                mainPresenter.generateReportAndExit();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-            Platform.exit();
-            System.exit(0);
         });
 
         // Set up the table data
@@ -123,15 +149,19 @@ public class MainController implements Initializable, MainView, CartInterface {
             TablePosition<Product, String> pos = event.getTablePosition();
             int row = pos.getRow();
             Product product = event.getTableView().getItems().get(row);
-
-            if(Integer.valueOf(event.getNewValue())<=0){
-                cartObservableList.remove(product);
-            }else{
-                product.setOrderedQuantity(event.getNewValue());
+            try {
+                if(checkAndConvertStringIsNumber(event.getNewValue())<=0){
+                    cartObservableList.remove(product);
+                }else{
+                    product.setOrderedQuantity(event.getNewValue());
+                }
+            } catch (InvalidNumberFormatException e) {
+                displayErrorAlert(e.getMessage());
+                event.getTableView().getColumns().get(0).setVisible(false);
+                event.getTableView().getColumns().get(0).setVisible(true);
             }
-
+            updateCartTotal();
         });
-
         cartTableView.setItems(cartObservableList);
     }
 
@@ -190,7 +220,6 @@ public class MainController implements Initializable, MainView, CartInterface {
     }
 
     private void updateCartTotal(){
-
         totalLabel.setText(calculateTotal() + " AED");
     }
 
@@ -200,5 +229,20 @@ public class MainController implements Initializable, MainView, CartInterface {
             total = total + product.getCost() * Integer.valueOf(product.getOrderedQuantity());
         }
         return total;
+    }
+
+    private void displayErrorAlert(String msg){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(msg);
+        alert.showAndWait();
+    }
+
+    private int checkAndConvertStringIsNumber(String number) throws InvalidNumberFormatException {
+        try{
+            return Integer.valueOf(number);
+        }catch (Exception e){
+            throw new InvalidNumberFormatException("Please enter a valid number!");
+        }
     }
 }
