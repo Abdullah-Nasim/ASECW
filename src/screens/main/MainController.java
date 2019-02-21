@@ -15,9 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import models.Order;
 import models.Product;
 import models.Report;
@@ -45,6 +43,7 @@ public class MainController implements Initializable, MainView, CartInterface {
     public Label totalLabel;
     public Button generateReportBtn;
     public Button ordersList;
+    private boolean discountApplied;
 
     private ObservableList<Product> foodItemsObservableList;
     private ObservableList<Product> beveragesObservableList;
@@ -99,8 +98,10 @@ public class MainController implements Initializable, MainView, CartInterface {
                                     + Integer.valueOf(product.getOrderedQuantity()));
                 }
                 Report.getInstance().totalIncome = Report.getInstance().totalIncome + calculateTotal();
+                Order.getInstance().orders.add(new Order.OrderItem(mainPresenter.generateOrderNumber(),
+                        mainPresenter.generateCustomerNumber(),mainPresenter.generateCurrentTimeStamp(), calculateTotal()));
                 cartObservableList.clear();
-                Order.getInstance().orders.add(new Order.OrderItem(mainPresenter.generateOrderNumber(), mainPresenter.generateCustomerNumber(),"", calculateTotal()));
+                discountApplied = false;
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Order Placed");
                 alert.setHeaderText("Order Placed Successfully");
@@ -228,7 +229,16 @@ public class MainController implements Initializable, MainView, CartInterface {
         for (Product product : cartObservableList) {
             total = total + product.getCost() * Integer.valueOf(product.getOrderedQuantity());
         }
-        return total;
+        if(mainPresenter.checkForDiscountEligibility(cartObservableList) && !discountApplied){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Discount Applied");
+            alert.setHeaderText("Congratulations! Discount of 20% was applied to your total.");
+            alert.showAndWait();
+            discountApplied = true;
+            return total*0.8;
+        }
+        else
+            return total;
     }
 
     private void displayErrorAlert(String msg){
@@ -245,4 +255,5 @@ public class MainController implements Initializable, MainView, CartInterface {
             throw new InvalidNumberFormatException("Please enter a valid number!");
         }
     }
+
 }

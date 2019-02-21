@@ -52,6 +52,8 @@ public class OrdersListViewCell extends ListCell<Order.OrderItem> {
 
             order_id.setText(order.getId());
             customer_id.setText(order.getCustomerId());
+            time_stamp.setText(order.getTimeStamp());
+            total_cost.setText(order.getTotal() + " AED");
 
             setText(null);
             setGraphic(anchorPane);

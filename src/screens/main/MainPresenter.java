@@ -3,11 +3,13 @@ package screens.main;
 import exceptions.CostLessThanOneException;
 import exceptions.InvalidCSVFormatException;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import models.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
 import java.util.*;
 
 class MainPresenter {
@@ -171,5 +173,24 @@ class MainPresenter {
             return "CUST101";
         else
             return "CUST" + (Integer.valueOf(Order.getInstance().orders.get(Order.getInstance().orders.size()-1).getCustomerId().substring(4)) + 1);
+    }
+
+    String generateCurrentTimeStamp(){
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        return timestamp.toString();
+    }
+
+    boolean checkForDiscountEligibility(ObservableList<Product> cartObservableList){
+        int numFoodItems = 0;
+        int numBeverages = 0;
+
+        for (Product product : cartObservableList) {
+            if (product.getId().startsWith("FOOD"))
+                numFoodItems = numFoodItems + 1;
+            if (product.getId().startsWith("BRV"))
+                numBeverages = numBeverages + 1;
+        }
+
+        return numFoodItems >= 2 && numBeverages >= 1;
     }
 }

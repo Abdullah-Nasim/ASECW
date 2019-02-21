@@ -53,6 +53,14 @@ public class Order {
         public void setTimeStamp(String timeStamp) {
             this.timeStamp = timeStamp;
         }
+
+        public Double getTotal() {
+            return total;
+        }
+
+        public void setTotal(Double total) {
+            this.total = total;
+        }
     }
 
 }
