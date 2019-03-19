@@ -7,15 +7,16 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screens.waiters_statuses.WaiterStatusesController">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screens.waiter_statuses.WaiterStatusesController">
 
 <AnchorPane prefHeight="720.0" prefWidth="600.0">
       <children>
          <TableView fx:id="waiterStatusesTableView" layoutX="3.0" layoutY="14.0" prefHeight="703.0" prefWidth="593.0">
            <columns>
-              <TableColumn prefWidth="75.0" text="Waiter Id" />
-              <TableColumn prefWidth="75.0" text="Order Id" />
-              <TableColumn prefWidth="75.0" text="Status" />
+              <TableColumn fx:id="waiter_id_col" prefWidth="141.0" text="Waiter Id" />
+              <TableColumn fx:id="order_id_col" minWidth="0.0" prefWidth="161.0" text="Order Id" />
+              <TableColumn fx:id="customer_id_col" prefWidth="139.0" text="Customer Id" />
+              <TableColumn fx:id="order_status_col" prefWidth="151.0" text="Status" />
            </columns>
          </TableView>
       </children></AnchorPane>

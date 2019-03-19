@@ -49,12 +49,12 @@
          <font>
             <Font size="26.0" />
          </font></Button>
-      <Label layoutX="783.0" layoutY="572.0" text="Total:">
+      <Label layoutX="799.0" layoutY="591.0" text="Total:">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label fx:id="totalLabel" layoutX="869.0" layoutY="572.0" text="0.0 AED">
+      <Label fx:id="totalLabel" layoutX="881.0" layoutY="591.0" text="0.0 AED">
          <font>
             <Font size="26.0" />
          </font>
@@ -64,7 +64,6 @@
             <Font name="System Bold" size="15.0" />
          </font></Button>
       <Button fx:id="ordersList" layoutX="783.0" layoutY="667.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="158.0" text="Orders List" />
-      <Button fx:id="waitersStatus" layoutX="783.0" layoutY="613.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="158.0" text="Waiters Status" />
    </AnchorPane>
    <columnConstraints>
       <ColumnConstraints />

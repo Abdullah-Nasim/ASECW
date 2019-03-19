@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_ase" default="compile.module.ase">
+  <dirname property="module.ase.basedir" file="${ant.file.module_ase}"/>
+  
+  <property name="module.jdk.home.ase" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.ase" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.ase" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.ase" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="ase.output.dir" value="${module.ase.basedir}/out/production/ASE"/>
+  <property name="ase.testoutput.dir" value="${module.ase.basedir}/out/test/ASE"/>
+  
+  <path id="ase.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="ase.module.production.classpath">
+    <path refid="${module.jdk.classpath.ase}"/>
+  </path>
+  
+  <path id="ase.runtime.production.module.classpath">
+    <pathelement location="${ase.output.dir}"/>
+  </path>
+  
+  <path id="ase.module.classpath">
+    <path refid="${module.jdk.classpath.ase}"/>
+    <pathelement location="${ase.output.dir}"/>
+    <pathelement location="${basedir}/lib/apiguardian-api-1.0.0.jar"/>
+    <pathelement location="${basedir}/lib/junit-jupiter-api-5.4.0.jar"/>
+    <pathelement location="${basedir}/lib/junit-platform-commons-1.4.0.jar"/>
+    <pathelement location="${basedir}/lib/opentest4j-1.1.1.jar"/>
+  </path>
+  
+  <path id="ase.runtime.module.classpath">
+    <pathelement location="${ase.testoutput.dir}"/>
+    <pathelement location="${ase.output.dir}"/>
+    <pathelement location="${basedir}/lib/apiguardian-api-1.0.0.jar"/>
+    <pathelement location="${basedir}/lib/junit-jupiter-api-5.4.0.jar"/>
+    <pathelement location="${basedir}/lib/junit-platform-commons-1.4.0.jar"/>
+    <pathelement location="${basedir}/lib/opentest4j-1.1.1.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.ase">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.ase">
+    <patternset refid="excluded.from.module.ase"/>
+  </patternset>
+  
+  <path id="ase.module.sourcepath">
+    <dirset dir="${module.ase.basedir}">
+      <include name="src"/>
+      <include name="res"/>
+    </dirset>
+  </path>
+  
+  <path id="ase.module.test.sourcepath">
+    <dirset dir="${module.ase.basedir}">
+      <include name="tests"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.ase" depends="compile.module.ase.production,compile.module.ase.tests" description="Compile module ASE"/>
+  
+  <target name="compile.module.ase.production" depends="register.custom.compilers" description="Compile module ASE; production classes">
+    <mkdir dir="${ase.output.dir}"/>
+    <javac2 destdir="${ase.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.ase}/javac">
+      <compilerarg line="${compiler.args.ase}"/>
+      <bootclasspath refid="ase.module.bootclasspath"/>
+      <classpath refid="ase.module.production.classpath"/>
+      <src refid="ase.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.ase"/>
+    </javac2>
+    
+    <copy todir="${ase.output.dir}">
+      <fileset dir="${module.ase.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.ase.basedir}/res">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.ase.tests" depends="register.custom.compilers,compile.module.ase.production" description="compile module ASE; test classes" unless="skip.tests">
+    <mkdir dir="${ase.testoutput.dir}"/>
+    <javac2 destdir="${ase.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.ase}/javac">
+      <compilerarg line="${compiler.args.ase}"/>
+      <bootclasspath refid="ase.module.bootclasspath"/>
+      <classpath refid="ase.module.classpath"/>
+      <src refid="ase.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.ase"/>
+    </javac2>
+    
+    <copy todir="${ase.testoutput.dir}">
+      <fileset dir="${module.ase.basedir}/tests">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.ase" description="cleanup module">
+    <delete dir="${ase.output.dir}"/>
+    <delete dir="${ase.testoutput.dir}"/>
+  </target>
+</project>

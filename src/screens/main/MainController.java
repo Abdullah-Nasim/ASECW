@@ -21,6 +21,7 @@ import models.Product;
 import models.Report;
 import screens.customer_orders.CustomerOrdersController;
 import screens.main.lists.ProductsListViewCell;
+import screens.waiter_statuses.WaiterStatusesController;
 
 import java.io.FileNotFoundException;
 import java.net.URL;
@@ -43,7 +44,6 @@ public class MainController implements Initializable, MainView, CartInterface {
     public Label totalLabel;
     public Button generateReportBtn;
     public Button ordersList;
-    public Button waitersStatus;
     private boolean discountApplied;
 
     private ObservableList<Product> foodItemsObservableList;
@@ -53,6 +53,8 @@ public class MainController implements Initializable, MainView, CartInterface {
     private ObservableList<Product> cartObservableList;
 
     private MainPresenter mainPresenter;
+
+    private WaiterStatusesController waiterStatusesController;
 
     public MainController(){
         foodItemsObservableList = FXCollections.observableArrayList();
@@ -73,6 +75,19 @@ public class MainController implements Initializable, MainView, CartInterface {
             displayErrorAlert(e.getMessage());
             Platform.exit();
             System.exit(0);
+        }
+
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("screens/waiter_statuses/waiter_statuses.fxml"));
+            Parent root1 = loader.load();
+            waiterStatusesController = loader.getController();
+            Stage stage = new Stage();
+            stage.setTitle("Waiters");
+            stage.setAlwaysOnTop(true);
+            stage.setScene(new Scene(root1));
+            stage.show();
+        }catch (Exception ex){
+            ex.printStackTrace();
         }
 
         ordersList.setOnAction(event -> {
@@ -99,14 +114,15 @@ public class MainController implements Initializable, MainView, CartInterface {
                                     + Integer.valueOf(product.getOrderedQuantity()));
                 }
                 Report.getInstance().totalIncome = Report.getInstance().totalIncome + calculateTotal();
-                Order.getInstance().orders.add(new Order.OrderItem(mainPresenter.generateOrderNumber(),
-                        mainPresenter.generateCustomerNumber(),mainPresenter.generateCurrentTimeStamp(), calculateTotal()));
+
+                Order.OrderItem orderItem = new Order.OrderItem(mainPresenter.generateOrderNumber(),
+                        mainPresenter.generateCustomerNumber(),mainPresenter.generateCurrentTimeStamp(), calculateTotal());
+
+                Order.getInstance().orders.add(orderItem);
                 cartObservableList.clear();
                 discountApplied = false;
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Order Placed");
-                alert.setHeaderText("Order Placed Successfully");
-                alert.showAndWait();
+
+                waiterStatusesController.addOrderItem(orderItem);
 
             }else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -115,10 +131,6 @@ public class MainController implements Initializable, MainView, CartInterface {
                 alert.showAndWait();
             }
 
-
-        });
-
-        waitersStatus.setOnAction(event -> {
 
         });
 

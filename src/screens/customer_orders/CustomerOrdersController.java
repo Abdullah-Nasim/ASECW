@@ -15,8 +15,7 @@ import java.util.ResourceBundle;
 public class CustomerOrdersController implements Initializable {
 
     public ListView<Order.OrderItem> ordersListView;
-    public Button closeBtn;
-    private ObservableList<Order.OrderItem> ordersObservableList = FXCollections.observableArrayList();;
+    private ObservableList<Order.OrderItem> ordersObservableList = FXCollections.observableArrayList();
 
     public void setData(LinkedList<Order.OrderItem> orderItems){
         ordersObservableList.addAll(orderItems);
