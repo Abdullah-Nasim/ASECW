@@ -43,6 +43,7 @@ public class MainController implements Initializable, MainView, CartInterface {
     public Label totalLabel;
     public Button generateReportBtn;
     public Button ordersList;
+    public Button waitersStatus;
     private boolean discountApplied;
 
     private ObservableList<Product> foodItemsObservableList;
@@ -114,6 +115,10 @@ public class MainController implements Initializable, MainView, CartInterface {
                 alert.showAndWait();
             }
 
+
+        });
+
+        waitersStatus.setOnAction(event -> {
 
         });
 
