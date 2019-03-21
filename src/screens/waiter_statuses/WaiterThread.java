@@ -1,6 +1,7 @@
 package screens.waiter_statuses;
 
 import javafx.concurrent.Task;
+import models.Order;
 
 public class WaiterThread extends Thread {
 
@@ -63,7 +64,7 @@ public class WaiterThread extends Thread {
                 @Override
                 protected Void call() throws Exception {
                     try {
-                        Thread.sleep(5000);
+                        Thread.sleep(15000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -72,13 +73,13 @@ public class WaiterThread extends Thread {
             };
 
         sleeper.setOnSucceeded(event -> {
-            isProcessing = "Processed";
-            orderProcessedListener.onOrderProcessed();
+            isProcessing = "Order Processed";
+            orderProcessedListener.onOrderProcessed(orderId);
         });
         new Thread(sleeper).start();
     }
 
     interface OrderProcessedListener{
-        void onOrderProcessed();
+        void onOrderProcessed(String orderId);
     }
 }

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ASE.iml" filepath="$PROJECT_DIR$/ASE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ASECW.iml" filepath="$PROJECT_DIR$/.idea/ASECW.iml" />
     </modules>
   </component>
 </project>

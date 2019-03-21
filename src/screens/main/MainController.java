@@ -4,6 +4,7 @@ import exceptions.CostLessThanOneException;
 import exceptions.InvalidCSVFormatException;
 import exceptions.InvalidNumberFormatException;
 import interfaces.CartInterface;
+import interfaces.OrderStatusChangeListener;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -29,7 +30,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.TreeMap;
 
-public class MainController implements Initializable, MainView, CartInterface {
+public class MainController implements Initializable, MainView, CartInterface, OrderStatusChangeListener {
 
     public ListView<Product> foodItemsLV;
     public ListView<Product> beveragesLV;
@@ -56,6 +57,8 @@ public class MainController implements Initializable, MainView, CartInterface {
 
     private WaiterStatusesController waiterStatusesController;
 
+    private CustomerOrdersController customerOrdersController;
+
     public MainController(){
         foodItemsObservableList = FXCollections.observableArrayList();
         beveragesObservableList = FXCollections.observableArrayList();
@@ -81,6 +84,7 @@ public class MainController implements Initializable, MainView, CartInterface {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("screens/waiter_statuses/waiter_statuses.fxml"));
             Parent root1 = loader.load();
             waiterStatusesController = loader.getController();
+            waiterStatusesController.setOrderStatusChangeListener(this);
             Stage stage = new Stage();
             stage.setTitle("Waiters");
             stage.setAlwaysOnTop(true);
@@ -94,7 +98,7 @@ public class MainController implements Initializable, MainView, CartInterface {
             try{
                 FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("screens/customer_orders/customer_orders.fxml"));
                 Parent root1 = loader.load();
-                CustomerOrdersController customerOrdersController = loader.getController();
+                customerOrdersController = loader.getController();
                 customerOrdersController.setData(Order.getInstance().orders);
                 Stage stage = new Stage();
                 stage.setTitle("Customers Orders");
@@ -116,7 +120,7 @@ public class MainController implements Initializable, MainView, CartInterface {
                 Report.getInstance().totalIncome = Report.getInstance().totalIncome + calculateTotal();
 
                 Order.OrderItem orderItem = new Order.OrderItem(mainPresenter.generateOrderNumber(),
-                        mainPresenter.generateCustomerNumber(),mainPresenter.generateCurrentTimeStamp(), calculateTotal());
+                        mainPresenter.generateCustomerNumber(),mainPresenter.generateCurrentTimeStamp(), calculateTotal(), "Waiting");
 
                 Order.getInstance().orders.add(orderItem);
                 cartObservableList.clear();
@@ -273,4 +277,9 @@ public class MainController implements Initializable, MainView, CartInterface {
         }
     }
 
+    @Override
+    public void onOrderStatusChangedListener() {
+        if(customerOrdersController != null)
+            customerOrdersController.refreshOrdersList();
+    }
 }

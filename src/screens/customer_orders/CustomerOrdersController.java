@@ -21,6 +21,9 @@ public class CustomerOrdersController implements Initializable {
         ordersObservableList.addAll(orderItems);
     }
 
+    public void refreshOrdersList(){
+        ordersListView.refresh();
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

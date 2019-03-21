@@ -24,6 +24,9 @@ public class OrdersListViewCell extends ListCell<Order.OrderItem> {
     private Label total_cost;
 
     @FXML
+    private Label current_status;
+
+    @FXML
     private AnchorPane anchorPane;
 
     private FXMLLoader mLLoader;
@@ -54,6 +57,7 @@ public class OrdersListViewCell extends ListCell<Order.OrderItem> {
             customer_id.setText(order.getCustomerId());
             time_stamp.setText(order.getTimeStamp());
             total_cost.setText(order.getTotal() + " AED");
+            current_status.setText(order.getProcessingStatus());
 
             setText(null);
             setGraphic(anchorPane);

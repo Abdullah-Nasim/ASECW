@@ -4,31 +4,37 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="150.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea"
-            xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
     <Label layoutX="7.0" layoutY="14.0" text="Order ID:">
         <font>
-            <Font name="System Bold" size="14.0"/>
+            <Font name="System Bold" size="14.0" />
         </font>
     </Label>
-    <Label layoutX="8.0" layoutY="75.0" text="Customer ID:">
+    <Label layoutX="8.0" layoutY="56.0" text="Customer ID:">
         <font>
-            <Font name="System Bold" size="14.0"/>
+            <Font name="System Bold" size="14.0" />
         </font>
     </Label>
-    <Label layoutX="7.0" layoutY="45.0" text="TimeStamp:">
+    <Label layoutX="7.0" layoutY="35.0" text="TimeStamp:">
         <font>
-            <Font name="System Bold" size="14.0"/>
+            <Font name="System Bold" size="14.0" />
         </font>
     </Label>
+    <Label layoutX="7.0" layoutY="76.0" text="Current Status:">
+        <font>
+            <Font name="System Bold" size="14.0" />
+        </font>
+    </Label>
+
     <Label layoutX="7.0" layoutY="116.0" text="Total:">
         <font>
-            <Font name="System Bold" size="14.0"/>
+            <Font name="System Bold" size="14.0" />
         </font>
     </Label>
-    <Label fx:id="order_id" layoutX="169.0" layoutY="16.0" text="Label"/>
-    <Label fx:id="time_stamp" layoutX="169.0" layoutY="47.0" text="Label"/>
-    <Label fx:id="customer_id" layoutX="169.0" layoutY="77.0" text="Label"/>
-    <Label fx:id="total_cost" layoutX="169.0" layoutY="118.0" text="Label"/>
+    <Label fx:id="order_id" layoutX="169.0" layoutY="16.0" text="Label" />
+    <Label fx:id="time_stamp" layoutX="169.0" layoutY="37.0" text="Label" />
+    <Label fx:id="customer_id" layoutX="169.0" layoutY="58.0" text="Label" />
+    <Label fx:id="total_cost" layoutX="169.0" layoutY="118.0" text="Label" />
+    <Label fx:id="current_status" layoutX="169.0" layoutY="78.0" text="Label" />
+
 </AnchorPane>

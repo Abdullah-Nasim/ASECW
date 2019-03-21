@@ -1,5 +1,6 @@
 package screens.waiter_statuses;
 
+import interfaces.OrderStatusChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
@@ -20,11 +21,18 @@ public class WaiterStatusesController implements Initializable, WaiterThread.Ord
     public TableColumn<WaiterThread, String> customer_id_col;
     public TableColumn<WaiterThread, String> order_status_col;
 
+    private OrderStatusChangeListener orderStatusChangeListener;
+
+    public void setOrderStatusChangeListener(OrderStatusChangeListener orderStatusChangeListener) {
+        this.orderStatusChangeListener = orderStatusChangeListener;
+    }
+
     private ObservableList<WaiterThread> waiters = FXCollections.observableArrayList();
 
     public void addOrderItem(Order.OrderItem orderItem) {
         WaiterThread waiter = findFreeWaiter();
         if(waiter != null){
+            orderItem.setProcessingStatus("Is processing");
             waiter.setOrderId(orderItem.getId());
             waiter.setCustomerId(orderItem.getCustomerId());
             waiter.setOrderProcessedListener(this);
@@ -36,7 +44,7 @@ public class WaiterStatusesController implements Initializable, WaiterThread.Ord
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        for(int i=0; i<=4; i++){
+        for(int i=0; i<=3; i++){
             int waiterId = 100 + i;
             waiters.add(new WaiterThread("Waiter" + waiterId, "", "", "", this));
         }
@@ -72,7 +80,22 @@ public class WaiterStatusesController implements Initializable, WaiterThread.Ord
     }
 
     @Override
-    public void onOrderProcessed() {
+    public void onOrderProcessed(String orderId) {
+
+        for(int i = 0; i < Order.getInstance().orders.size(); i++ ){
+            if(Order.getInstance().orders.get(i).getId().equals(orderId)){
+                Order.getInstance().orders.get(i).setProcessingStatus("Processed");
+                break;
+            }
+        }
+
+        for(int i = 0; i < Order.getInstance().orders.size(); i++ ){
+            if(Order.getInstance().orders.get(i).getProcessingStatus().equals("Waiting")){
+                addOrderItem(Order.getInstance().orders.get(i));
+                break;
+            }
+        }
+        orderStatusChangeListener.onOrderStatusChangedListener();
         waiterStatusesTableView.refresh();
     }
 }

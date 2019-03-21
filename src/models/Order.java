@@ -22,12 +22,14 @@ public class Order {
         private String customerId;
         private String timeStamp;
         private Double total;
+        private String processingStatus;
 
-        public OrderItem(String id, String customerId, String timeStamp, Double total) {
+        public OrderItem(String id, String customerId, String timeStamp, Double total, String processingStatus) {
             this.id = id;
             this.customerId = customerId;
             this.timeStamp = timeStamp;
             this.total = total;
+            this.processingStatus = processingStatus;
         }
 
         public String getId() {
@@ -60,6 +62,14 @@ public class Order {
 
         public void setTotal(Double total) {
             this.total = total;
+        }
+
+        public String getProcessingStatus() {
+            return processingStatus;
+        }
+
+        public void setProcessingStatus(String processingStatus) {
+            this.processingStatus = processingStatus;
         }
     }
 
